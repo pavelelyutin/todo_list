@@ -1,8 +1,8 @@
+import ToDo from "./features/todo/Todo";
+
 function App() {
 
-  return (
-    <h1>todo list</h1>
-  )
+  return <ToDo />;
 }
 
-export default App
+export default App;
