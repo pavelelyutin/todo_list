@@ -1,5 +1,5 @@
-import TodoHeader from "./components/TodoHeader";
-import TodoTabs from "./components/TodoTabs";
+import TodoHeader from "./components/TodoHeader/TodoHeader";
+import TodoTabs from "./components/TodoTabs/TodoTabs";
 
 function ToDo() {
     return (

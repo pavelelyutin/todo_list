@@ -1,0 +1,20 @@
+.tabs {
+  display: flex;
+  gap: 10px;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: #eaeaea;
+}
+
+.tabs__button {
+  border: none;
+  padding: 5px 40px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.tabs__button.acitve {
+  border-radius: 20px;
+  color: #ffffff;
+  background-color: #8d8d8d;
+}
