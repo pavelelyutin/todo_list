@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './TodoTabs.css'
 
 const tabs = [
@@ -20,16 +19,14 @@ const tabs = [
   },
 ];
 
-function TodoTabs() {
-  const [activeTab, setActiveTab] = useState('all');
-
+function TodoTabs({ activeTab, onTabChange }) {
   return (
     <div className="tabs">
       {tabs.map((tab) => (
         <button
           key={tab.id}
           className={`tabs__button ${activeTab === tab.id ? 'acitve' : ''}`}
-          onClick={() => setActiveTab(tab.id)}
+          onClick={() => onTabChange(tab.id)}
         >
           {tab.label}
         </button>
