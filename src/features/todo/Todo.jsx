@@ -25,17 +25,19 @@ function ToDo() {
 
   const filteredTasks = tasks.filter((task) => {
     if (activeTab === 'all') {
-      return true
+      return true;
     }
 
     return task.status === activeTab;
-  })
+  });
 
   return (
     <main>
-      <TodoHeader title="Tasks" date="11 August 2026" />
-      <TodoTabs activeTab={activeTab} onTabChange={setActiveTab} />
-      <TodoList tasks={filteredTasks} onToggle={handleToggle} />
+      <div className="todo">
+        <TodoHeader title="Tasks" date="11 August 2026" />
+        <TodoTabs activeTab={activeTab} onTabChange={setActiveTab} />
+        <TodoList tasks={filteredTasks} onToggle={handleToggle} />
+      </div>
     </main>
   );
 }

@@ -5,12 +5,11 @@ function TodoItem({ task, onToggle }) {
   return (
     <li className="tasks__item task">
       <div className="task__main">
-        <button className="task__checkbox" onClick={() => onToggle(task.id)}></button>
+        <button className={`task__checkbox ${task.status === 'done' ? 'done' : ''}`} onClick={() => onToggle(task.id)}></button>
 
         <div className="task__content">
-          <h3 className="task__title">{task.title}</h3>
+          <h3 className={`task__title ${task.status === 'done' ? 'done' : ''}`}>{task.title}</h3>
           <span className="task__date">{formatDate(task.createdAt)}</span>
-          <span>status: {task.status}</span>
         </div>
       </div>
 

@@ -1,4 +1,40 @@
+@font-face {
+  font-family: 'Oxanium';
+  src: url('./fonts/Oxanium-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Oxanium';
+  src: url('./fonts/Oxanium-Medium.woff2') format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Oxanium';
+  src: url('./fonts/Oxanium-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+
+body {
+  font-family: 'Oxanium', sans-serif;
+  background-color: #f8f8f8;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo {
+  max-width: 800px;
+  border-radius: 20px;
+  padding: 100px;
+  background-color: #ffffff;
 }

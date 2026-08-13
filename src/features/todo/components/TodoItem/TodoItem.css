@@ -28,12 +28,21 @@
   cursor: pointer;
 }
 
+.task__checkbox.done {
+  background-color: #ff2600;
+}
+
 .task__title {
   margin: 0;
+  font-weight: 500;
   font-size: 14px;
+}
+
+.task__title.done {
+  text-decoration: line-through;
 }
 
 .task__date {
   color: #8d8d8d;
-  font-size: 10px;
+  font-size: 12px;
 }
