@@ -3,7 +3,7 @@ import TodoItem from '../TodoItem/TodoItem';
 function TodoList({ tasks }) {
   return (
     <section>
-      <ul>
+      <ul className="tasks">
         {tasks.map((task) => (
           <TodoItem key={task.id} task={task} />
         ))}

@@ -1,0 +1,39 @@
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #eaeaea;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.task__main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task__checkbox {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #eaeaea;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.task__title {
+  margin: 0;
+  font-size: 14px;
+}
+
+.task__date {
+  color: #8d8d8d;
+  font-size: 10px;
+}
