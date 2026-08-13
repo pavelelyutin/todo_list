@@ -1,11 +1,11 @@
 import TodoItem from '../TodoItem/TodoItem';
 
-function TodoList({ tasks }) {
+function TodoList({ tasks, onToggle }) {
   return (
     <section>
       <ul className="tasks">
         {tasks.map((task) => (
-          <TodoItem key={task.id} task={task} />
+          <TodoItem key={task.id} task={task} onToggle={onToggle} />
         ))}
       </ul>
     </section>

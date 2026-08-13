@@ -2,7 +2,7 @@ const tasks = [
   {
     id: 1,
     title: 'buy milk',
-    status: 'todo',
+    status: 'in-progress',
     createdAt: '2026-08-05T15:22:00',
   },
   {
@@ -14,7 +14,7 @@ const tasks = [
   {
     id: 3,
     title: 'buy cucumber',
-    status: 'todo',
+    status: 'done',
     createdAt: '2026-08-05T15:22:00',
   },
   {
