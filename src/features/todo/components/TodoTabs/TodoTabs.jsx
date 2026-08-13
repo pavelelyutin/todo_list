@@ -6,10 +6,6 @@ const tabs = [
     label: 'all',
   },
   {
-    id: 'todo',
-    label: 'todo',
-  },
-  {
     id: 'in-progress',
     label: 'in progress',
   },

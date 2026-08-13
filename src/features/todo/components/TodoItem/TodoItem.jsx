@@ -1,4 +1,5 @@
 import './TodoItem.css';
+import formatDate from '../../../../utils/formatDate';
 
 function TodoItem({ task }) {
   return (
@@ -8,7 +9,7 @@ function TodoItem({ task }) {
 
         <div className="task__content">
           <h3 className="task__title">{task.title}</h3>
-          <span className="task__date">{task.createdAt}</span>
+          <span className="task__date">{formatDate(task.createdAt)}</span>
         </div>
       </div>
 
