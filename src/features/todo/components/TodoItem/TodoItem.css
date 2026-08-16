@@ -13,6 +13,10 @@
   padding: 10px;
 }
 
+.task.done {
+  opacity: 0.6;
+}
+
 .task__main {
   display: flex;
   align-items: center;
