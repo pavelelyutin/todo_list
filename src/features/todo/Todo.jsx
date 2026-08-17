@@ -30,6 +30,29 @@ function ToDo() {
     setEditingTask(task);
   }
 
+  function handleEditSave(taskId, newTitle) {
+    const trimmedTitle = newTitle.trim();
+
+    if (!trimmedTitle) {
+      return;
+    }
+
+    setTasks((currentTasks) => {
+      return currentTasks.map((task) => {
+        if (task.id !== taskId) {
+          return task;
+        }
+
+        return {
+          ...task,
+          title: newTitle,
+        };
+      });
+    });
+
+    setEditingTask(null);
+  }
+
   const filteredTasks = tasks.filter((task) => {
     if (activeTab === 'all') {
       return true;
@@ -52,6 +75,7 @@ function ToDo() {
           <EditTaskModal
             task={editingTask}
             onClose={() => setEditingTask(null)}
+            onSave={handleEditSave}
           />
         )}
       </div>
