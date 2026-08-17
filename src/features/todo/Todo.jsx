@@ -3,12 +3,12 @@ import initialTasks from './data/tasks';
 import TodoHeader from './components/TodoHeader/TodoHeader';
 import TodoTabs from './components/TodoTabs/TodoTabs';
 import TodoList from './components/TodoList/TodoList';
-import Modal from '../../components/Modal/Modal';
+import EditTaskModal from './components/EditTaskModal/EditTaskModal';
 
 function ToDo() {
   const [activeTab, setActiveTab] = useState('all');
   const [tasks, setTasks] = useState(initialTasks);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingTask, setEditingTask] = useState(null);
 
   function handleToggle(taskId) {
     setTasks((currentTasks) => {
@@ -25,6 +25,11 @@ function ToDo() {
     });
   }
 
+  function handleEdit(task) {
+    console.log(task);
+    setEditingTask(task);
+  }
+
   const filteredTasks = tasks.filter((task) => {
     if (activeTab === 'all') {
       return true;
@@ -38,12 +43,16 @@ function ToDo() {
       <div className="todo">
         <TodoHeader title="Tasks" date="11 August 2026" />
         <TodoTabs activeTab={activeTab} onTabChange={setActiveTab} />
-        <TodoList tasks={filteredTasks} onToggle={handleToggle} />
-        {isModalOpen && (
-          <Modal onClose={() => setIsModalOpen(false)}>
-            <h2>Edit task</h2>
-            <p>Hello from modal</p>
-          </Modal>
+        <TodoList
+          tasks={filteredTasks}
+          onToggle={handleToggle}
+          onEdit={handleEdit}
+        />
+        {editingTask && (
+          <EditTaskModal
+            task={editingTask}
+            onClose={() => setEditingTask(null)}
+          />
         )}
       </div>
     </main>

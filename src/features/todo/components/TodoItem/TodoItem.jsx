@@ -1,7 +1,7 @@
 import './TodoItem.css';
 import formatDate from '../../../../utils/formatDate';
 
-function TodoItem({ task, onToggle }) {
+function TodoItem({ task, onToggle, onEdit }) {
   const isDone = task.status === 'done';
 
   return (
@@ -16,7 +16,7 @@ function TodoItem({ task, onToggle }) {
       </div>
 
       <div className="task__actions">
-        <button className='task__edit'>edit</button>
+        <button className='task__edit' onClick={() => onEdit(task)}>edit</button>
         <button className='task__delete'>delete</button>
       </div>
     </li>
