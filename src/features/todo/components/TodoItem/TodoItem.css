@@ -50,3 +50,31 @@
   color: #8d8d8d;
   font-size: 12px;
 }
+
+.task__actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.task__edit {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background-color .2s ease-in-out;
+}
+
+.task__edit:hover {
+  background-color: rgba(255, 38, 0, 0.25);
+}
+
+.task__delete {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background-color .2s ease-in-out;
+}
+
+.task__delete:hover {
+  background-color: rgba(255, 38, 0, 0.25);
+}

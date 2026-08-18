@@ -6,18 +6,26 @@ function EditTaskModal({ task, onClose, onSave }) {
 
   return (
     <Modal onClose={onClose}>
-      <h2>Edit task</h2>
+      <h2 className="modal__title">Edit task</h2>
 
       <input
+        className="modal__input"
         type="text"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
 
-      <button type="button" onClick={() => onSave(task.id, title)}>
-        Save
-      </button>
-      <p>current value: {title}</p>
+      <div className="modal__actions">
+        <button
+          className="btn btn-reset"
+          onClick={() => onSave(task.id, title)}
+        >
+          Save
+        </button>
+        <button className="btn btn-reset" onClick={onClose}>
+          Cancel
+        </button>
+      </div>
     </Modal>
   );
 }

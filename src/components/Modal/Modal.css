@@ -13,15 +13,40 @@
   border-radius: 20px;
   padding: 24px;
   background-color: #ffffff;
+  box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.20);
 }
 
 .modal__close {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 20px;
+  right: 20px;
+}
+
+.modal__title {
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.modal__input {
+  width: 100%;
+  margin-bottom: 30px;
   border: none;
-  background-color: transparent;
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
+  border-bottom: 1px solid #333;
+  outline: none;
+  padding: 5px 0;
+}
+
+.modal__input:focus {
+  border-bottom-color: #ff2600;
+}
+
+.modal__text {
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.modal__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
