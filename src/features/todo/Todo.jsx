@@ -26,7 +26,6 @@ function ToDo() {
   }
 
   function handleEdit(task) {
-    console.log(task);
     setEditingTask(task);
   }
 
