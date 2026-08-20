@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Modal from '../../../../components/Modal/Modal';
 
 function DeleteConfirmModal({ task, onClose, onConfirm }) {

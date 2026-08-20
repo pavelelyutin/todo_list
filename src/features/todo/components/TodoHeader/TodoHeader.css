@@ -1,4 +1,7 @@
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
@@ -11,4 +14,30 @@
   margin: 0;
   color: #8d8d8d;
   font-size: 14px;
+}
+
+.header__btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(255, 38, 0, 0), rgba(255, 38, 0, 0.3));
+  background-size: 200% 200%;
+  animation: gradient-shift 1s ease infinite;
+}
+
+.header__btn img {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

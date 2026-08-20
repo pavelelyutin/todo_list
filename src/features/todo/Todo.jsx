@@ -5,12 +5,14 @@ import TodoTabs from './components/TodoTabs/TodoTabs';
 import TodoList from './components/TodoList/TodoList';
 import EditTaskModal from './components/EditTaskModal/EditTaskModal';
 import DeleteConfirmModal from './components/DeleteConfirmModal/DeleteConfirmModal';
+import AddTaskModal from './components/AddTaskModal/AddTaskModal';
 
 function ToDo() {
   const [activeTab, setActiveTab] = useState('all');
   const [tasks, setTasks] = useState(initialTasks);
   const [editingTask, setEditingTask] = useState(null);
   const [deletingTask, setDeletingTask] = useState(null);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   function handleToggle(taskId) {
     setTasks((currentTasks) => {
@@ -69,6 +71,27 @@ function ToDo() {
     setDeletingTask(null);
   }
 
+  function handleAddTask(title) {
+    const trimmedTitle = title.trim(); 
+
+    if (!trimmedTitle) {
+      return;
+    }
+
+    const newTask = {
+      id: Date.now(),
+      title: trimmedTitle,
+      status: 'in-progress',
+      createdAt: new Date(),
+    };
+
+    setTasks((currentTasks) => {
+      return [...currentTasks, newTask];
+    });
+
+    setIsAddModalOpen(false);
+  }
+
   const filteredTasks = tasks.filter((task) => {
     if (activeTab === 'all') {
       return true;
@@ -80,14 +103,17 @@ function ToDo() {
   return (
     <main>
       <div className="todo">
-        <TodoHeader title="Tasks" date="11 August 2026" />
+        <TodoHeader title="Tasks" date="11 August 2026" setIsAddModalOpen={setIsAddModalOpen} />
+
         <TodoTabs activeTab={activeTab} onTabChange={setActiveTab} />
+
         <TodoList
           tasks={filteredTasks}
           onToggle={handleToggle}
           onEdit={handleEdit}
           onDelete={handleDelete}
         />
+
         {editingTask && (
           <EditTaskModal
             task={editingTask}
@@ -95,11 +121,19 @@ function ToDo() {
             onSave={handleEditSave}
           />
         )}
+
         {deletingTask && (
           <DeleteConfirmModal
             task={deletingTask}
             onClose={() => setDeletingTask(null)}
             onConfirm={handleDeleteConfirm}
+          />
+        )}
+
+        {isAddModalOpen && (
+          <AddTaskModal
+            onClose={() => setIsAddModalOpen(false)}
+            onSave={handleAddTask}
           />
         )}
       </div>

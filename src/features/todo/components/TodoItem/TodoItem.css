@@ -24,8 +24,8 @@
 }
 
 .task__checkbox {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border: 1px solid #eaeaea;
   border-radius: 50%;
   background-color: transparent;
