@@ -4,6 +4,9 @@ import formatDate from '../../../../utils/formatDate';
 function TodoItem({ task, onToggle, onEdit, onDelete }) {
   const isDone = task.status === 'done';
 
+  console.log(task.createdAt);
+console.log(typeof task.createdAt);
+
   return (
     <li className={`tasks__item task ${isDone ? 'done' : ''}`}>
       <div className="task__main">

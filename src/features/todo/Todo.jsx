@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import initialTasks from './data/tasks';
 import TodoHeader from './components/TodoHeader/TodoHeader';
 import TodoTabs from './components/TodoTabs/TodoTabs';
@@ -6,13 +6,28 @@ import TodoList from './components/TodoList/TodoList';
 import EditTaskModal from './components/EditTaskModal/EditTaskModal';
 import DeleteConfirmModal from './components/DeleteConfirmModal/DeleteConfirmModal';
 import AddTaskModal from './components/AddTaskModal/AddTaskModal';
+import { getTasks, savedTasks } from './services/storage';
 
 function ToDo() {
   const [activeTab, setActiveTab] = useState('all');
-  const [tasks, setTasks] = useState(initialTasks);
+
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = getTasks();
+
+    if (savedTasks) {
+      return savedTasks;
+    }
+
+    return initialTasks;
+  });
+
   const [editingTask, setEditingTask] = useState(null);
   const [deletingTask, setDeletingTask] = useState(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
+  useEffect(() => {
+    savedTasks(tasks)
+  }, [tasks]);
 
   function handleToggle(taskId) {
     setTasks((currentTasks) => {
@@ -72,7 +87,7 @@ function ToDo() {
   }
 
   function handleAddTask(title) {
-    const trimmedTitle = title.trim(); 
+    const trimmedTitle = title.trim();
 
     if (!trimmedTitle) {
       return;
@@ -103,7 +118,11 @@ function ToDo() {
   return (
     <main>
       <div className="todo">
-        <TodoHeader title="Tasks" date="11 August 2026" setIsAddModalOpen={setIsAddModalOpen} />
+        <TodoHeader
+          title="Tasks"
+          date="11 August 2026"
+          setIsAddModalOpen={setIsAddModalOpen}
+        />
 
         <TodoTabs activeTab={activeTab} onTabChange={setActiveTab} />
 
